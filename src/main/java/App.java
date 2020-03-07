@@ -5,17 +5,14 @@ public class App {
     static Logger log = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
+        Book book1 = new Book("123", "sdv", "Es", "50");
+        Book book2 = new Book("235", "fre", "Ne", "100");
 
-        try{
-            throw new RuntimeException("Nereala kluda");
-        } catch (RuntimeException e){
-            log.error("Maven",e);
-        }
+        Bookshelf bookshelf = new Bookshelf();
+        bookshelf.add(book1);
+        bookshelf.add(book2);
 
-        log.info("Maven");
-        log.trace("Maven");
-        log.debug("Maven");
-        log.warn("Maven");
-        log.error("Maven");
+        bookshelf.getBooks().forEach(book -> log.info(book.getTitle()));
+
     }
 }
